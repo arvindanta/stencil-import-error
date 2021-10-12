@@ -13,34 +13,48 @@
   "files": [
     "dist/",
     "loader/",
-    "react/"
+    "react/",
+    "react-dist/"
   ],
   "scripts": {
-    "build": "npm run add:react && stencil build --docs &&  npm run build:react",
+    "build": "npm run add:react && stencil build --docs &&  npm run build:react1",
     "add:react": "npm run clean:react && npx mkdirp react",
     "clean:react": "rimraf react",
-    "build:react": " tsc --project tsconfig-react.json --module es6 --outDir react",
+    "build:react": " tsc --project tsconfig-react.json",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
-  },
-  "dependencies": {
-    "@stencil/core": "^2.8.1"
+    "generate": "stencil generate",
+    "build:react1": "tsc --project tsconfig-react.json && rollup -c",
+    "watch": "rollup -cw"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.2.5",
     "@stencil/react-output-target": "^0.1.0",
     "@types/jest": "^26.0.24",
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.9",
+    "eslint": "^8.0.0",
+    "eslint-plugin-tree-shaking": "^1.9.2",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "puppeteer": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
+    "react-output-target": "^0.0.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-watch": "^4.3.1",
     "ts-loader": "^9.1.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.4.3",
+    "typings": "^2.1.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "@stencil/core": "^2.9.0"
+  }
 }

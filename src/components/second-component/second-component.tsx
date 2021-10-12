@@ -1,5 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
-
+import { Component, h } from '@stencil/core';
 @Component({
   tag: 'second-component',
   styleUrl: 'second-component.css',
@@ -9,11 +8,11 @@ export class SecondComponent {
 
   render() {
     return (
-      <Host>
+      <div>
        This is Second component including My-Component
        <br/>
        <my-component>assd sprimary btn</my-component>
-      </Host>
+      </div>
     );
   }
 

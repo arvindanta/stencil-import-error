@@ -1,6 +1,6 @@
 import { Config } from '@stencil/core';
 
-import { reactOutputTarget } from '@stencil/react-output-target';
+import { reactOutputTarget } from 'react-output-target';
 
 export const config: Config = {
   enableCache:false,
@@ -32,8 +32,8 @@ export const config: Config = {
       // includePolyfills: true,
 
       // tree shakable, need to use setassetpath
-      customElementsDir: 'dist/components',
-      includeImportCustomElements: true,
+        customElementsDir: 'dist/components',
+        includeImportCustomElements: true,
     }),
   ],
 };

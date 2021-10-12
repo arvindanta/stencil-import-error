@@ -7,6 +7,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [third-cmp](../third-cmp)
+
 ### Depends on
 
 - [my-component](../my-component)
@@ -15,6 +19,7 @@
 ```mermaid
 graph TD;
   second-component --> my-component
+  third-cmp --> second-component
   style second-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

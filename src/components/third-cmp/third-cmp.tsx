@@ -10,6 +10,8 @@ export class ThirdCmp {
   render() {
     return (
       <Host>
+        <second-component/>
+        Thrid comp
         <slot></slot>
       </Host>
     );

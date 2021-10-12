@@ -13,16 +13,15 @@
       "noImplicitReturns": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "outDir": "dist",
+      "outDir": "react",
       "removeComments": false,
       "sourceMap": true,
       "jsx": "react",
-      "target": "es2015"
+      "target": "es2017"
     },
     "include": [
       "react-core/src/**/*.ts",
-      "react-core/src/**/*.tsx",
-      "react-core/package.json"
+      "react-core/src/**/*.tsx"
     ],
     "exclude": ["**/__tests__/**"],
     "compileOnSave": false,

@@ -1,0 +1,20 @@
+{
+    "plugins": [
+        "tree-shaking"
+    ],
+ 
+        "rules": {
+            "tree-shaking/no-side-effects-in-initialization": 2
+        },
+        "parserOptions": {
+            "sourceType": "module"
+        },
+        "env": {
+            "commonjs": true,
+            "node": true,
+            "browser": true,
+            "es6": true,
+            "jest": true,
+          },
+    
+}
