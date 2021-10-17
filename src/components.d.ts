@@ -6,82 +6,165 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface FwButton {
         /**
-          * The first name
+          * Identifier of  the theme based on which the button is styled.
          */
-        "first": string;
+        "color": 'primary' | 'secondary' | 'danger' | 'link' | 'text';
         /**
-          * The last name
+          * Disables the button on the interface. If the attribute’s value is undefined, the value is set to false.
          */
-        "last": string;
+        "disabled": boolean;
         /**
-          * The middle name
+          * Sets the button to a full-width block. If the attribute’s value is undefined, the value is set to false.
          */
-        "middle": string;
+        "expand": boolean;
+        /**
+          * Accepts the id of the fw-modal component to open it on click
+         */
+        "modalTriggerId": string;
+        /**
+          * Size of the button.
+         */
+        "size": 'normal' | 'mini' | 'small';
+        /**
+          * Sets the delay for throttle in milliseconds. Defaults to 200 milliseconds.
+         */
+        "throttleDelay": number;
+        /**
+          * Button type based on which actions are performed when the button is clicked.
+         */
+        "type": 'button' | 'reset' | 'submit';
     }
-    interface SecondComponent {
-    }
-    interface ThirdCmp {
+    interface FwCheckbox {
+        /**
+          * Sets the state of the check box to selected. If the attribute’s value is undefined, the value is set to false.
+         */
+        "checked": boolean;
+        /**
+          * Disables the check box on the interface. If the attribute’s value is undefined, the value is set to false.
+         */
+        "disabled": boolean;
+        /**
+          * Label displayed on the interface, for the check box.
+         */
+        "label": string;
+        /**
+          * Name of the component, saved as part of form data.
+         */
+        "name": string;
+        /**
+          * Identifier corresponding to the component, that is saved when the form data is saved.
+         */
+        "value": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLFwButtonElement extends Components.FwButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLFwButtonElement: {
+        prototype: HTMLFwButtonElement;
+        new (): HTMLFwButtonElement;
     };
-    interface HTMLSecondComponentElement extends Components.SecondComponent, HTMLStencilElement {
+    interface HTMLFwCheckboxElement extends Components.FwCheckbox, HTMLStencilElement {
     }
-    var HTMLSecondComponentElement: {
-        prototype: HTMLSecondComponentElement;
-        new (): HTMLSecondComponentElement;
-    };
-    interface HTMLThirdCmpElement extends Components.ThirdCmp, HTMLStencilElement {
-    }
-    var HTMLThirdCmpElement: {
-        prototype: HTMLThirdCmpElement;
-        new (): HTMLThirdCmpElement;
+    var HTMLFwCheckboxElement: {
+        prototype: HTMLFwCheckboxElement;
+        new (): HTMLFwCheckboxElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
-        "second-component": HTMLSecondComponentElement;
-        "third-cmp": HTMLThirdCmpElement;
+        "fw-button": HTMLFwButtonElement;
+        "fw-checkbox": HTMLFwCheckboxElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface FwButton {
         /**
-          * The first name
+          * Identifier of  the theme based on which the button is styled.
          */
-        "first"?: string;
+        "color"?: 'primary' | 'secondary' | 'danger' | 'link' | 'text';
         /**
-          * The last name
+          * Disables the button on the interface. If the attribute’s value is undefined, the value is set to false.
          */
-        "last"?: string;
+        "disabled"?: boolean;
         /**
-          * The middle name
+          * Sets the button to a full-width block. If the attribute’s value is undefined, the value is set to false.
          */
-        "middle"?: string;
+        "expand"?: boolean;
+        /**
+          * Accepts the id of the fw-modal component to open it on click
+         */
+        "modalTriggerId"?: string;
+        /**
+          * Triggered when the button loses focus.
+         */
+        "onFwBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Triggered when the button is clicked.
+         */
+        "onFwClick"?: (event: CustomEvent<void>) => void;
+        /**
+          * Triggered when the button comes into focus.
+         */
+        "onFwFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Size of the button.
+         */
+        "size"?: 'normal' | 'mini' | 'small';
+        /**
+          * Sets the delay for throttle in milliseconds. Defaults to 200 milliseconds.
+         */
+        "throttleDelay"?: number;
+        /**
+          * Button type based on which actions are performed when the button is clicked.
+         */
+        "type"?: 'button' | 'reset' | 'submit';
     }
-    interface SecondComponent {
-    }
-    interface ThirdCmp {
+    interface FwCheckbox {
+        /**
+          * Sets the state of the check box to selected. If the attribute’s value is undefined, the value is set to false.
+         */
+        "checked"?: boolean;
+        /**
+          * Disables the check box on the interface. If the attribute’s value is undefined, the value is set to false.
+         */
+        "disabled"?: boolean;
+        /**
+          * Label displayed on the interface, for the check box.
+         */
+        "label"?: string;
+        /**
+          * Name of the component, saved as part of form data.
+         */
+        "name"?: string;
+        /**
+          * Triggered when the check box loses focus.
+         */
+        "onFwBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Triggered when the check box’s value is modified.
+         */
+        "onFwChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Triggered when the check box comes into focus.
+         */
+        "onFwFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Identifier corresponding to the component, that is saved when the form data is saved.
+         */
+        "value"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
-        "second-component": SecondComponent;
-        "third-cmp": ThirdCmp;
+        "fw-button": FwButton;
+        "fw-checkbox": FwCheckbox;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "second-component": LocalJSX.SecondComponent & JSXBase.HTMLAttributes<HTMLSecondComponentElement>;
-            "third-cmp": LocalJSX.ThirdCmp & JSXBase.HTMLAttributes<HTMLThirdCmpElement>;
+            "fw-button": LocalJSX.FwButton & JSXBase.HTMLAttributes<HTMLFwButtonElement>;
+            "fw-checkbox": LocalJSX.FwCheckbox & JSXBase.HTMLAttributes<HTMLFwCheckboxElement>;
         }
     }
 }

@@ -3,7 +3,19 @@ import { Config } from '@stencil/core';
 import { reactOutputTarget } from 'react-output-target';
 
 export const config: Config = {
-  enableCache:false,
+  buildEs5: true,
+  extras: {
+    appendChildSlotFix: true,
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    initializeNextTick: true,
+    safari10: true,
+    scriptDataOpts: true,
+    shadowDomShim: true,
+    cloneNodeFix: true,
+    slotChildNodesFix: true,
+  },
+  enableCache: true,
   namespace: 'import-error',
   outputTargets: [
     {

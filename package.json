@@ -13,19 +13,20 @@
   "files": [
     "dist/",
     "loader/",
-    "react/",
-    "react-dist/"
+    "react/"
   ],
   "scripts": {
-    "build": "npm run add:react && stencil build --docs &&  npm run build:react1",
+    "build": "npm run add:react-dist && stencil build --docs &&  npm run build:react-dist",
     "add:react": "npm run clean:react && npx mkdirp react",
+    "add:react-dist": "npm run clean:react-dist && npx mkdirp react-dist",
     "clean:react": "rimraf react",
+    "clean:react-dist": "rimraf react-dist",
     "build:react": " tsc --project tsconfig-react.json",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "build:react1": "tsc --project tsconfig-react.json && rollup -c",
+    "build:react-dist": "tsc --project tsconfig-react.json",
     "watch": "rollup -cw"
   },
   "devDependencies": {

@@ -2,8 +2,12 @@ dist/
 www/
 loader/
 react/
+react1/
+react-dist/
 react-core/src/react-component-lib
 react-core/src/components.ts
+react-core/src/*.ts
+!react-core/src/index.ts
 
 *~
 *.sw[mnpcod]
